@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Salary Calculator</title>
+  <link rel="stylesheet" href="salary.css">
+  <script src="salary.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <p class="eyebrow">Payroll tools</p>
+      <h1>Salary Calculator</h1>
+      <p>Estimate gross pay, deductions, and net pay.</p>
+    </header>
+
+    <section class="card">
+      <form id="salary-form">
+        <div class="form-grid">
+          <label>Annual base salary
+            <input id="salary" type="number" min="0" step="0.01" value="60000" required>
+          </label>
+          <label>Pay periods per year
+            <select id="periods">
+              <option value="12">12 (Monthly)</option>
+              <option value="24">24 (Semi-monthly)</option>
+              <option value="26" selected>26 (Biweekly)</option>
+              <option value="52">52 (Weekly)</option>
+            </select>
+          </label>
+          <label>Tax rate (%)
+            <input id="tax-rate" type="number" min="0" max="100" step="0.01" value="20">
+          </label>
+          <label>Other deductions per period
+            <input id="other-deductions" type="number" min="0" step="0.01" value="0">
+          </label>
+        </div>
+        <button type="submit">Calculate</button>
+      </form>
+
+      <div id="results" class="results" aria-live="polite">
+        <div><span>Gross pay / period</span><strong id="gross">—</strong></div>
+        <div><span>Tax deduction</span><strong id="tax">—</strong></div>
+        <div><span>Other deductions</span><strong id="deductions">—</strong></div>
+        <div class="net"><span>Net pay / period</span><strong id="net">—</strong></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
